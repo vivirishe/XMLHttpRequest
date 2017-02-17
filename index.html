@@ -3,8 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title>XML-HTTP-Req</title>
+    <script>
+      //get the data JSON
+      var url = "https://data.hartford.gov/resource/daux-ukcc.json";
+      var xmlhttp;
+
+      window.onload = function() {
+        // gets the data programatically
+        xmlhttp = new XMLHttpRequest();
+        //comunication with the server
+        xmlhttp.onreadystatechange = process;
+        //open the connection with GET, want this to happen asynchronisly
+        xmlhttp.open('GET', url, true);
+        //lets it happen
+        xmlhttp.send();
+      }
+      function process() {
+        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+          //we have our data
+          console.log(xmlhttp.responseText);
+        }
+      }
+    </script>
   </head>
   <body>
-
+    <div id="result"></div>
   </body>
 </html>
