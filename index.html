@@ -21,7 +21,8 @@
       function process() {
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
           //we have our data
-          console.log(xmlhttp.responseText);
+          var restaurantData = JSON.parse(xmlhttp.responseText);
+          console.log(restaurantData[0]);
         }
       }
     </script>
