@@ -22,7 +22,10 @@
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
           //we have our data
           var restaurantData = JSON.parse(xmlhttp.responseText);
-          console.log(restaurantData[0].blms_dba);
+          // console.log(restaurantData[0].blms_dba);
+          for (var i = 0; i < restaurantData.length; i++) {
+            document.getElementById('result').innerHTML += i+1 + ".- " + restaurantData[i].blms_dba + "<br/>";
+          }
         }
       }
     </script>
